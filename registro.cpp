@@ -20,7 +20,7 @@ int main(){
     people p;
     cout<<"Ingresa el numero de personas que deseas registrar\n";
     cin>>x;
-    fstream archivo("registro.bin", ios::out| ios:: binary);
+    fstream registro("registro.bin", ios::out| ios:: binary);
         for(int i= 0; i<x; i++){
         
         cout<<"ingrese su nombre"<<endl;
@@ -46,8 +46,8 @@ int main(){
             cout << "Opcion no valida. Por favor, seleccione m o f ." << endl;
             break;
     };
-    archivo.write(reinterpret_cast<char *>(&p), sizeof(people));
+    registro.write(reinterpret_cast<char *>(&p), sizeof(people));
     }
     cout<<sizeof(people)<<endl;
-    archivo.close();
+    registro.close();
 }
