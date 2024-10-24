@@ -20,8 +20,7 @@ int main(){
     people p;
     cout<<"Ingresa el numero de personas que deseas registrar\n";
     cin>>x;
-
-  
+    fstream archivo("registro.bin", ios::out| ios:: binary);
         for(int i= 0; i<x; i++){
         
         cout<<"ingrese su nombre"<<endl;
@@ -30,22 +29,25 @@ int main(){
         cin>>p.edad;
         cout<<"ingresa tu cedula\n";
         cin>>p.cedula;
-        cout<<"ingresa tu peso"<<endl;
+        cout<<"ingresa tu peso (Kg)"<<endl;
         cin>>p.peso;
-        cout<<"ingresa tu estatura"<<endl;
+        cout<<"ingresa tu estatura (metros)"<<endl;
         cin>>p.altura;
         cout<<"ingresa tu genero"<<endl;
         cin>>p.gen;
          switch (p.gen) {
         case 'm':
-            cout << "Has seleccionado: Masculino" << endl;
+            cout << "Eres hombre" << endl;
             break;
         case 'f':
-            cout << "Has seleccionado: Femenino" << endl;
+            cout << "Eres mujer" << endl;
             break;
         default:
-            cout << "Opción no válida. Por favor, seleccione m o f ." << endl;
+            cout << "Opcion no valida. Por favor, seleccione m o f ." << endl;
             break;
     };
+    archivo.write(reinterpret_cast<char *>(&p), sizeof(people));
     }
+    cout<<sizeof(people)<<endl;
+    archivo.close();
 }
