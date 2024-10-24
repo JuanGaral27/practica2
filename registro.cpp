@@ -5,7 +5,7 @@
 
 using namespace std;
 
-  struct persona{
+  struct people{
             char nombre[60];
             int edad;
             int cedula;
@@ -15,15 +15,14 @@ using namespace std;
 
         }p;
 int main(){
-    persona p1;
-    persona p2;
-    persona p3;
+
     int x;
+    people p;
     cout<<"Ingresa el numero de personas que deseas registrar\n";
     cin>>x;
 
   
-        while (x>0){
+        for(int i= 0; i<x; i++){
         
         cout<<"ingrese su nombre"<<endl;
         cin>>p.nombre;
@@ -44,13 +43,9 @@ int main(){
         case 'f':
             cout << "Has seleccionado: Femenino" << endl;
             break;
-        case 'n':
-            cout << "Has seleccionado: No binario" << endl;
-            break;
         default:
-            cout << "Opción no válida. Por favor, seleccione m, f o n." << endl;
+            cout << "Opción no válida. Por favor, seleccione m o f ." << endl;
             break;
     };
-     x--;
     }
 }
